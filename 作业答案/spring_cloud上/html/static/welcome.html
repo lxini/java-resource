@@ -1,0 +1,18 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <title>欢迎登录xxx</title>
+
+     <script>
+       $(function(){
+            var login_email = $.cookie('login_email');  
+            $("#email").html(login_email);    
+       })
+     </script>
+</head>
+<body>
+    <span id="email"></span>，欢迎登录系统！   
+</body>
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../../资料/netty-source/pom.xml" />
+        <option value="$PROJECT_DIR$/lg-rpc/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/lg-rpc/lg-rpc-api/pom.xml" />
+        <option value="$PROJECT_DIR$/lg-rpc/lg-rpc-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/lg-rpc/lg-rpc-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/all/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/bom/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/buffer/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-dns/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-haproxy/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-http/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-http2/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-memcache/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-mqtt/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-smtp/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-socks/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-stomp/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec-xml/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/codec/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/common/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/dev-tools/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/example/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/handler-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/handler/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/microbench/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/resolver-dns/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/resolver/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/tarball/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/testsuite-autobahn/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/testsuite-http2/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/testsuite-native-image/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/testsuite-osgi/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/testsuite-shading/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/testsuite/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/transport-native-epoll/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/transport-native-kqueue/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/transport-native-unix-common-tests/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/transport-native-unix-common/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/transport-rxtx/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/transport-sctp/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/transport-udt/pom.xml" />
+        <option value="$PROJECT_DIR$/../../资料/netty-source/transport/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

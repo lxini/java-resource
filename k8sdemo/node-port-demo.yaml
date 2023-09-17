@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-port-demo
+  labels:
+    app: node-port-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-port-demo
+  template:
+    metadata:
+      name: node-port-demo
+      labels:
+        app: node-port-demo
+    spec:
+      containers:
+        - name: node-port-demo
+          image: tomcat:9.0.20-jre8-alpine
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-port-svc
+spec:
+  selector:
+    app: node-port-demo
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8080
+      nodePort: 30080
+  type: NodePort

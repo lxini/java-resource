@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
+    <script>
+        $(function () {
+            // Handler for .ready() called.
+            $("#submitBtn").on("click", function () {
+                var email = $("#reg-email").val();
+                var password = $("#reg-password").val();
+                var code = $("#reg-code").val();
+                $.ajax({
+                    url: "http://www.test.com/api/user/register/"+email+"/"+password+"/"+code,
+                    // url: "http://localhost:9002/api/user/register/"+email+"/"+password+"/"+code,
+                    type: "GET",
+                    success: function (data) {
+                        if(data == 0){
+                            alert("注册成功");
+                            location.href = "login.html";
+                        }else if(data == 2){
+                            alert("注册码已过期，请重新获取");
+                        }else{
+                            alert("注册失败，重新提交尝试");
+                        }
+                    },
+                    error:function (data) {
+                        if(data.status == 403){
+                            alert("当前ip注册次数达到上限，禁止注册");
+                        }
+                    }
+                })
+            });
+
+            $("#getCodeBtn").on("click", function () {
+                var email = $("#reg-email").val();
+                $.ajax({
+                    url: "http://www.test.com/api/code/create/"+email,
+                    // url: "http://localhost:9002/api/code/create/"+email,
+                    type: "GET",
+                    success: function (data) {
+                        if(data){
+                            alert("请到邮箱查看验证码！");
+                        }else{
+                            alert("这个邮箱已经注册过了");
+                        }
+                    }
+                    //dataType: "text"
+                })
+            });
+        });
+    </script>
+    <title>Hello, world!</title>
+</head>
+<body>
+<div class="container">
+    <!-- Content here -->
+    <form>
+        <div class="form-group">
+            <label for="reg-email">Email address</label>
+            <input type="email" class="form-control" id="reg-email" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="reg-password">Password</label>
+            <input type="password" class="form-control" id="reg-password">
+        </div>
+        <div class="form-group">
+            <label for="reg-code">Code</label>
+            <input type="text" class="form-control" id="reg-code">
+            <button type="button" id="getCodeBtn" class="btn btn-primary">获取验证码</button>
+        </div>
+        <button type="button" id="submitBtn" class="btn btn-primary">注册</button>
+    </form>
+</div>
+
+</body>
+</html>

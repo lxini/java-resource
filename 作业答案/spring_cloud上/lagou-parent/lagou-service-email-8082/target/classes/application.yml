@@ -1,0 +1,8 @@
+spring:
+  ## QQ邮箱配置
+  mail:
+    host: ${spring.mail.host} #发送邮件服务器
+    username: ${spring.mail.username} #发送邮件的邮箱地址
+    password:  ${spring.mail.password} #客户端授权码，不是邮箱密码，这个在qq邮箱设置里面自动生成的
+    properties.mail.smtp.port: ${spring.mail.properties.mail.smtp.port}
+    from: ${spring.mail.from} # 发送邮件的地址，和上面username一致

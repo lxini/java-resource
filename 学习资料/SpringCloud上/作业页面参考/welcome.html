@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <!--    <link rel="stylesheet" href="/css/bootstrap.css">-->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
+    <script>
+        $(function() {
+            var token = $.cookie("token");
+            $.ajax({
+                //url: "http://localhost:9002/api/user/login/"+email+"/"+password,
+                url: "http://www.test.com/api/user/info/"+token,
+                type: "GET",
+                success:function (data) {
+                    $("#emailspan").html(data);
+                    $("#tokenspan").html(token);
+                },
+                error:function (data) {
+                    if(data.status == 401){
+                        location.href = "login.html";
+                    }
+                    console.debug(data);
+                }
+                //dataType: "text"
+            })
+        });
+    </script>
+    <title>Hello, world!</title>
+
+</head>
+<body>
+<div class="container">
+    <!-- Content here -->
+    <span id="emailspan"></span>,欢迎登录系统,你的token为<span id="tokenspan"></span>
+</div>
+
+</body>
+</html>

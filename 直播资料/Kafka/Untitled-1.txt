@@ -1,0 +1,19 @@
+
+主题：逻辑名称                           MyCat：tb_order
+分片：partition                         server1: tb_order_01
+                                       server2: tb_order_02
+
+Kafka的broker中：提供对主题分区partition的I/O，请求的处理
+
+
+topic1   5个分区        数据如何在5个分区处理？
+tb_order  5张表：tb_order_0x       tb_order
+
+
+分区数决定了topic消费者的多少
+
+主题分区分布于多台服务器上，要求多台服务器一起工作，不能出现宕机
+
+
+副本：从分区主分片同步数据
+主分片所在服务器宕机，则副本转换为主分片对外提供服务

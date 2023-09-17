@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: initcpod-test
+  labels:
+    app: initcpod-test
+spec:
+  containers:
+    - name: initcpod-test
+      image: busybox:1.32.0
+      imagePullPolicy: IfNotPresent
+      command: ['sh','-c','echo The app is running! && sleep 3600']
+  initContainers:
+    - name: init-myservice
+      image: busybox:1.32.0
+      imagePullPolicy: IfNotPresent
+      command: ['sh','-c','until nslookup myservice; do echo waiting for muservice; sleep 2; done;']
+    - name: init-mydb
+      image: busybox:1.32.0
+      imagePullPolicy: IfNotPresent
+      command: ['sh','-c','until nslookup mydb; do echo waiting for mydb; sleep 2; done;']
+  restartPolicy: Always
+  

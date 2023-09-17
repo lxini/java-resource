@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-demo
+  labels:
+    app: deployment-demo
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: deployment-demo
+  template:
+    metadata:
+      name: deployment-demo
+      labels:
+        app: deployment-demo
+    spec:
+      containers:
+        - name: deployment-demo
+          image: nginx:1.17.10-alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+      

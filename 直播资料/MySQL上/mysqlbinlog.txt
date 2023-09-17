@@ -1,0 +1,8 @@
+三:导出待恢复的sql语句
+ 
+mysqlbinlog --start-datetime="2019-04-28 16:00:00" --stop-datetime="2019-04-28 18:00:00" /usr/local/mysql/var/mysql-bin.00002 > dump.sql       导出特定时间段的sql
+
+
+四:恢复所有的
+
+mysqlbinlog --no-defaults /usr/local/mysql/var/mysql-bin.000022 |mysql -uroot -p123

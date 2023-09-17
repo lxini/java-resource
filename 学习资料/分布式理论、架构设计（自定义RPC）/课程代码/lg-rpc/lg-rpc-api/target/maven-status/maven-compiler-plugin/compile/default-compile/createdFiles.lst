@@ -1,0 +1,4 @@
+com\lagou\rpc\common\RpcRequest.class
+com\lagou\rpc\api\IUserService.class
+com\lagou\rpc\common\RpcResponse.class
+com\lagou\rpc\po\User.class

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat-pod
+  labels:
+    app: tomcat-pod
+spec:
+  containers:
+    - name: tomcat-pod
+      image: tomcat:9.0.20-jre8-alpine
+      imagePullPolicy: IfNotPresent
+  restartPolicy: Always

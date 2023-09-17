@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness3
+  labels:
+    app: liveness3
+spec:
+  containers:
+    - name: liveness3
+      image: nginx:1.17.10-alpine
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        tcpSocket:
+          port: 8080
+        initialDelaySeconds: 10
+        periodSeconds: 3
+        timeoutSeconds: 5
+  restartPolicy: Always
+  

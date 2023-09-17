@@ -1,0 +1,26 @@
+server:
+  port: 9002
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://lagoucloudeurekaservera:8761/eureka/,http://lagoucloudeurekaserverb:8762/eureka/ #把 eureka 集群中的所有 url 都填写了进来，也可以只写一台，因为各个 eureka server 可以同步注册表
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+spring:
+  application:
+    name: lagou-cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: service-code-router
+          uri: lb://lagou-service-code
+          predicates:
+            - Path=/code/**
+        - id: service-user-router
+          uri: lb://lagou-service-user
+          predicates:
+            - Path=/user/**
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 20000

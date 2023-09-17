@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-deploy
+  labels:
+    app: eureka-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eureka-pod
+  template:
+    metadata:
+      name: eureka-pod
+      labels:
+        app: eureka-pod
+    spec:
+      containers:
+        - name: eureka-deploy
+          image: lucas/eureka:base
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8761
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-svc
+spec:
+  selector:
+    app: eureka-pod
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8761
+      nodePort: 30761
+  type: NodePort
+  

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myjdbcconfigmap
+data:
+  jdbc.driverclass: "com.mysql.jdbc.Driver"
+  

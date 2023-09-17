@@ -1,0 +1,67 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../js/jquery.min.js"></script>
+    <title>系统登录</title>
+
+    <style>
+        div{
+            width:300px;
+            height:100px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-top: -50px ;
+            margin-left:-150px;
+        }
+        button{
+            width: 80px!important;
+        }
+     </style>
+
+     <script>
+       $(function(){
+             $("#loginBtn").bind("click",function(){
+                  $.ajax({         
+                     type: 'GET',
+                     url: 'http://www.test.com/api/user/login/' + $('#email').val() + "/" + $('#password').val(),
+                     success: function(data) {
+                        if("true" == data + "") {
+                            location.href = "./welcome.html";
+                        }else{
+                            alert("登录失败");
+                        }
+                     },
+                     error: function(){
+                        alert("登录失败")
+                     }
+                 })
+               })
+            })
+     </script>
+</head>
+<body>
+
+    <div>
+            <table>
+                <tr>
+                    <td>邮箱：</td>
+                    <td><input type="text" id="email"></td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td>
+                        <input type="password" id="password"> 
+		    </td>
+                </tr>
+		<tr>
+		    <td></td>
+		    <td>
+                        <input type="button" id="loginBtn" value="登录"/>
+                        <input type="button" id="registerBtn" onclick="location.href='/static/register.html'" value="注册新账号"/>
+		    </td>
+		</tr>
+            </table>
+	 </div>
+</body>
+</html>
